@@ -1,0 +1,290 @@
+\documentclass[12pt]{exam} %versao 2.2
+\usepackage{amsmath} % habilita funções matemáticas do AMS-LaTeX
+\usepackage[brazil]{babel} % dicionário para o ".tex", traduções na compilação
+\usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}
+\usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=2.5cm,bmargin=3cm]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% C O N F I G U R A Ç Õ E S   D A   P Á G I N A %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\footskip=0cm
+\topmargin=0.1cm
+\renewcommand{\baselinestretch}{1}
+\setlength{\headheight}{0.6cm} % altura do cabeçalho
+\setlength{\topmargin}{0.6cm}  % margem superior
+\setlength{\footskip}{0.3cm}   % espaço entre rodapé e texto
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% C O N F I G U R A Ç Õ E S  D O S   C Ó D I G O S %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberstyle=\tiny,
+  extendedchars=true,
+  breaklines=true,
+  frame=tb,
+  basicstyle=\scriptsize,
+  showstringspaces=false
+}
+
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Lista de Códigos}
+
+%%%%%%%%%%%%%%%%%%%
+% G A B A R I T O %
+%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%\printanswers
+
+%%%%%%%%%%%%%%%%%%%%%
+% T R A D U Ç Õ E S %
+%%%%%%%%%%%%%%%%%%%%%
+
+\pointpoints{ponto}{pontos}
+
+\renewcommand{\solutiontitle}{
+    \noindent\textbf{Solução:}\enspace
+}
+
+\qformat{\textbf{Questão
+\thequestion:}\hfill[\pointsofquestion{\arabic{question}}
+\points]}
+
+%\totalformat{Total da questão \thequestion: \totalpoints\ \points} %ou use como na próx. linha
+
+\totalformat{Total: \totalpoints\ \points}
+
+\marginpointname{\points}
+
+\hqword{Questões}           %substitutes text for “Question:”
+\hpgword{Páginas}           %substitutes text for “Page:”
+\hpword{Total de pontos}    %substitutes text for “Points:”
+\hsword{Pontos conseguidas} %substitutes text for “Score:”
+\htword{Total}              %substitutes text for “Total”
+
+%%%%%%%%%%%%%%%%%
+% A J U S T E S %
+%%%%%%%%%%%%%%%%%
+
+%\pointsinrightmargin
+%\pointsinmargin
+\addpoints
+\bracketedpoints
+%\pointsdroppedatright
+\setlength\linefillheight{.7cm} %distância entre linhas
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% D E F I N I Ç Õ E S %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\professor}     [1]{\def\imprimeprofessor{\uppercase{#1}}}
+\newcommand{\materia}       [1]{\def\imprimemateria{\uppercase{\textbf{#1}}}}
+\newcommand{\data}          [1]{\def\imprimedata{\textbf{#1}}}
+\newcommand{\numexame}      [1]{\def\imprimenumexame{#1}}
+\newcommand{\turma}         [1]{\def\imprimeturma{\uppercase{\textbf{#1}}}}
+\newcommand{\titulo}        [1]{\def\imprimetitulo{\uppercase{\textbf{#1}}}}
+\newcommand{\curso}         [1]{\def\imprimecurso{\uppercase{#1}}}
+
+\professor{Diogo Cezar Teixeira Batista}
+\materia{Técnicas de Programação}
+\data {27/09/2017}
+\numexame{$1^a$}
+\turma{AN32F/IF62C}
+\titulo{Revisão C, Funções, Registros, Enums e Ponteiros}
+
+% \curso{Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas}
+\curso{ Bacharelado em Engenharia de Software}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% C A B E Ç A L H O   E   R O D A - P É  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{headandfoot}
+\headrule
+\footrule
+
+\lhead[
+    \parbox{1.5cm}{
+    \includegraphics[height=1.5cm,width=1.5cm]{images/figura_brasao.jpg}
+    }
+    \parbox{12cm}{\scriptsize
+        \vspace{0.3cm}
+        MINISTÉRIO DA EDUCAÇÃO                                                    \\
+        UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ                                \\
+        CAMPUS CORNÉLIO PROCÓPIO                                                  \\
+        \imprimecurso \\
+    } \hspace{0.1cm}
+    \parbox{-1cm}{
+    \includegraphics[height=0.9cm]{images/figura_utfpr.jpg}
+    }
+    \\
+    \vspace{0.3cm}
+    \uppercase{
+    \scriptsize DATA: \imprimedata {} TURMA: \imprimeturma
+    \\
+    \vspace{0.3cm}
+    Nome :
+    }
+]{\uppercase{\scriptsize{
+  \imprimemateria
+  \vspace{0.3cm}
+  \\
+  Nome : \hspace{8.5cm}
+  Turma : \imprimeturma}}}
+
+
+\chead[]{}
+
+\rhead[\uppercase{\scriptsize \imprimemateria \\ \vspace{0.3cm} \scriptsize Prof.
+\imprimeprofessor}]{\scriptsize \uppercase{\imprimenumexame prova}
+\\ \vspace{0.5cm} DATA: \imprimedata}
+
+\lfoot{\iflastpage{\scriptsize\uppercase{PÁGINA \thepage\ de
+\numpages}}{}} \cfoot{\scriptsize\iflastpage{\uppercase{FIM DA
+PROVA}}{\uppercase{PÁGINA \thepage\ de \numpages}}}
+\rfoot{\scriptsize\iflastpage{\uppercase{BOA SORTE!!!}}{}}
+
+%%%%%%%%%%%%%%%%%%%
+% Q U E S T Õ E S %
+%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\large{\uppercase{\imprimenumexame PROVA - \imprimetitulo}}
+\end{center}
+
+\normalsize
+
+\section{\uppercase{Instruções}}
+\begin{itemize}
+    \item utilize caneta preta ou azul para a resolução da prova, respostas a lápis serão desconsideradas;
+    \item preencha seu nome em todas as folhas da prova;
+    \item deixe sobre a carteira somente os instrumentos necessários para o preenchimento da prova;
+    \item não é permitido o uso de nenhum aparelho eletônico;
+    \item o tempo para a realização da prova é de 90 minutos a partir do início da mesma;
+    \item caso o espaço para o preenchimento da questão não seja suficiente, resolva o exercício no verso da folha indicando o seu número;
+\end{itemize}
+
+\section{\uppercase{Questões}}
+
+\begin{questions}
+    \question[10]
+    Explique brevemente o que distingue o XHTML do HTML.
+    \begin{solution}
+      testando uma resposta aqui...
+    \end{solution}
+    \fillwithlines{3.5cm}
+
+    \question[10]
+    Explique, com suas palavras, a diferença entre o posicionamento relativo e o posicionamento absolutos dos boxes em CSS.
+    \fillwithlines{5cm}
+
+    \question
+    Indique o que significa cada uma das seguintes regras de estilo do CSS:
+    \begin{parts}
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/a.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/b.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/c.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/d.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/e.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/h.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/g.txt}}
+       \vspace{2cm}
+
+       \part[2\half]
+       \texttt{\lstinputlisting[language=HTML]{codes/f.txt}}
+       \vspace{2cm}
+    \end{parts}
+
+    \question[20]
+    Indique o layout do seguinte documento XHTML quando se aplica a seguinte
+    folha de estilo:
+    \texttt{\lstinputlisting[language=HTML]{codes/css.txt}}
+    \vspace{6cm}
+    \scriptsize{\textbf{Nota}: indique a dimensão e o espaçamento aproximado de cada elemento.}
+    \normalsize
+
+    \question[10]
+    Explique como funciona o protocolo HTTP.
+    \fillwithlines{3.5cm}
+
+    \question[10]
+    Assinale as questões verdadeiras:
+    \begin{choices}
+    \choice
+    Tableless mostra o conteúdo de forma mais rápida.
+    \choice
+    Nunca se deve usar tabelas em XHTML, pois isso deixa aumenta o tempo de carregamento da página.
+    \choice
+    Com tabless é possível separar a formatação e programação do sistema.
+    \choice
+    Não é possivel aninhar boxes em XHTML.
+    \choice
+    A identificação de um div se dá por sua propriedade: class.
+    \end{choices}
+
+    \question
+    Identifique para que serve cada umas das seguintes tags XHTML:
+    \begin{parts}
+        \part[2]
+        \texttt{<table></table>}
+
+        \part[2]
+        \texttt{<img></img>}
+
+        \part[2]
+        \texttt{<select></select>}
+
+        \part[2]
+        \texttt{<option></option>}
+
+        \part[2]
+        \texttt{<ul></ul>}
+
+        \part[2]
+        \texttt{<li></li>}
+
+        \part[2]
+        \texttt{<ol></ol>}
+
+        \part[2]
+        \texttt{<a></a>}
+
+        \part[2]
+        \texttt{<div></div>}
+
+        \part[2]
+        \texttt{<h1></h2>}
+    \end{parts}
+\end{questions}
+    %\vspace{0.5cm}
+    %\hspace{-1.2cm}
+    %\gradetable[h]
+\end{document}

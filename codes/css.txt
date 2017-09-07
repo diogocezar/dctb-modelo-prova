@@ -1,0 +1,10 @@
+<style type="text/css">
+	p.uppercase {text-transform: uppercase}
+	p.margin {margin: 2cm 4cm 3cm 4cm}
+	div {color = blue}
+	div p{color = red}
+	p#para1{
+		text-align: center;
+		color: green
+	}
+</style>

@@ -1,0 +1,2 @@
+background-image:url("/images/bgdesert.jpg");
+background-repeat:repeat-y;

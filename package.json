@@ -1,0 +1,15 @@
+{
+  "name": "provas-utfpr",
+  "version": "1.0.0",
+  "description": "Provas em LaTeX para as disciplinas na UTFPR",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diogo Cezar <diogo@diogocezar.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "shelljs": "^0.7.8"
+  }
+}
